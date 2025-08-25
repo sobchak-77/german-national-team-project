@@ -1,0 +1,148 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+@font-face {
+  font-family: "outfit-c";
+  src: url("../fonts/outfit-regular.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "raleway-c";
+  src: url("../fonts/raleway-regular.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --index: calc(1vw + 1vh);
+  --gallery-gap: calc(var(--index) * 7.5);
+  --white-color: #fafafa;
+  --primary-font: "raleway-c";
+  --title-font: "outfit-c";
+}
+
+.title-reset,
+.descr-reset {
+  margin: 0;
+}
+
+.img-style {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+/* отслеживаем элементы, которые изменяются,
+и добавляем им свойство will-change */
+
+.page-content,
+.header__logo,
+.header__txt,
+.gallery {
+	will-change: transform;
+}
+
+/* -------------------- */
+/* --- MAIN STYLES --- */
+/* ------------------ */
+
+body {
+  color: var(--white-color);
+  font-family: var(--primary-font), sans-serif;
+  -webkit-text-size-adjust: 100%;
+  background-image: url("../img/bg.jpg");
+  background-size: 50px;
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 0 3vw;
+}
+
+.header__logo {
+  position: absolute;
+  top: 2vh;
+  right: 4vw;
+  width: calc(var(--index) * 27);
+}
+
+.header__txt {
+  position: relative;
+  height: 100vh;
+}
+
+.header__title {
+  position: absolute;
+	bottom: 12vh;
+  width: min-content;
+  color: #ffcc01;
+  font-family: var(--title-font);
+  font-size: calc(var(--index) * 7);
+	line-height: 0.9;
+}
+
+/* ---------------- */
+/* --- GALLERY --- */
+/* -------------- */
+
+.gallery {
+  padding: calc(var(--index) * 3) 0;
+}
+
+.gallery__wrap {
+  display: flex;
+  /* padding: calc(var(--index) * 3) 0; */
+}
+
+.gallery__left,
+.gallery__right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.gallery__left {
+  margin-top: calc(var(--gallery-gap) * 1.75);
+}
+
+.gallery__item {
+	max-width: calc(var(--index) * 21);
+	max-height: 180vh;
+	margin-bottom: var(--gallery-gap);
+	border-radius: 8px;
+}
+
+.gallery__right .gallery__item {
+	margin: 0;
+	margin-top: var(--gallery-gap);
+}
+
+.txt-block {
+	position: relative;
+	color: var(--color-text);
+}
+
+.txt-block__title {
+	margin-bottom: 1.5rem;
+	color: var(--color-header);
+  font-family: var(--title-font);
+	font-size: 2rem;
+	line-height: 2.4rem;
+}
+
+.txt-block__descr {
+	line-height: 1.75;
+}
